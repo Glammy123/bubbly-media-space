@@ -12,7 +12,7 @@ const Index = () => {
       {/* Main Content */}
       <div className="w-full max-w-5xl space-y-12 text-center animate-fade-up">
         <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-gradient">
-          Create your perfect profile page
+          Glammy.lol
         </h1>
         
         <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto">
