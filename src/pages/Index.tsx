@@ -7,11 +7,11 @@ const Index = () => {
   return (
     <div className="relative min-h-screen flex flex-col items-center justify-center p-4">
       {/* Background Pattern */}
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.primary.100),theme(colors.white))]" />
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.slate.900),theme(colors.background))]" />
       
       {/* Main Content */}
       <div className="w-full max-w-5xl space-y-12 text-center animate-fade-up">
-        <h1 className="text-4xl sm:text-6xl font-bold tracking-tight bg-gradient-to-b from-foreground to-foreground/70 bg-clip-text">
+        <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-gradient">
           Create your perfect profile page
         </h1>
         
@@ -20,15 +20,9 @@ const Index = () => {
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-4">
-          <Button asChild size="lg" className="rounded-full px-8">
+          <Button asChild size="lg" className="rounded-full px-8 glass-dark hover:bg-white/10">
             <Link to="/create">
               Get Started
-            </Link>
-          </Button>
-          
-          <Button asChild variant="outline" size="lg" className="rounded-full px-8">
-            <Link to="/explore">
-              Explore Pages
             </Link>
           </Button>
         </div>
@@ -39,11 +33,10 @@ const Index = () => {
         {features.map((feature, index) => (
           <div
             key={feature.title}
-            className="relative group rounded-2xl border bg-background/50 p-6 backdrop-blur-sm transition-colors hover:bg-background/80"
+            className="relative group rounded-2xl glass-dark p-6 transition-colors hover:bg-white/10"
           >
-            <div className="absolute inset-px rounded-[11px] bg-gradient-to-b from-primary/10 to-primary/5 opacity-50 group-hover:opacity-100 transition-opacity" />
             <feature.icon className="h-10 w-10 text-primary mb-4" />
-            <h3 className="font-semibold mb-2">{feature.title}</h3>
+            <h3 className="font-semibold mb-2 text-white">{feature.title}</h3>
             <p className="text-sm text-muted-foreground">{feature.description}</p>
           </div>
         ))}
