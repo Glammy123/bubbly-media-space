@@ -24,6 +24,20 @@ const Auth = () => {
     });
   }, [navigate]);
 
+  const createProfile = async (userId: string) => {
+    const { error } = await supabase
+      .from('profiles')
+      .insert([
+        {
+          id: userId,
+          username,
+          display_name: username,
+        }
+      ]);
+
+    if (error) throw error;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
@@ -38,19 +52,7 @@ const Auth = () => {
         if (authError) throw authError;
 
         if (authData.user) {
-          // Create profile
-          const { error: profileError } = await supabase
-            .from('profiles')
-            .insert([
-              {
-                id: authData.user.id,
-                username,
-                display_name: username,
-              }
-            ]);
-
-          if (profileError) throw profileError;
-
+          await createProfile(authData.user.id);
           toast.success('Account created successfully! Please check your email to verify your account.');
         }
       } else {
